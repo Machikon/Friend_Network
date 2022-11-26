@@ -3,21 +3,22 @@ const {
   getThoughts,
   getSingleThought,
   createThought,
+  updateThought,
   deleteThought,
-  addThought,
-  removeAssignment,
-} = require('../../controllers/studentController');
+  addReaction,
+  deleteReaction,
+} = require('../../controller/thoughtController');
 
-// /api/students
-router.route('/').get(getStudents).post(createStudent);
+// /api/thought for GET and POST thoughts
+router.route('/').get(getThoughts).post(createThought);
 
-// /api/students/:studentId
-router.route('/:studentId').get(getSingleStudent).delete(deleteStudent);
+// /api/thoughts/:thoughtId for GET, DELETE, and PUT one specific thought
+router.route('/:thoughtId').get(getSingleThought).delete(deleteThought).put(updateThought);
 
-// /api/students/:studentId/assignments
-router.route('/:studentId/assignments').post(addAssignment);
+// /api/thoughtId/:reactions for POST reactions
+router.route('/:thoughtId/reactions').post(addReaction);
 
-// /api/students/:studentId/assignments/:assignmentId
-router.route('/:studentId/assignments/:assignmentId').delete(removeAssignment);
+// /api/thoughtId/:reactions for DELETE reactions
+router.route('/:thoughtId/reactions/:reactionId').delete(deleteReaction);
 
 module.exports = router;
