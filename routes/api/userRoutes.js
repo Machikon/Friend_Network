@@ -14,11 +14,11 @@ router.route('/').get(getUsers).post(createUser);
 
 // /api/users/:userId for GET, POST, and DELETE one specific user
 router
-  .route('/:uerId')
+  .route('/:userId')
   .get(getSingleUser)
   .put(updateUser)
   .delete(deleteUser);
 
-router.route("/:id/friends/:friendsID").post(postFriend).delete(deleteFriend);
+router.route("/:userId/friends/:friendID").post(postFriend).delete(deleteFriend);
 
 module.exports = router;
